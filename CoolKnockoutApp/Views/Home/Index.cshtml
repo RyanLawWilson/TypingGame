@@ -1,0 +1,50 @@
+﻿<h1 class="mt-3 mb-4 text-danger text-center">Typing Game</h1>
+
+@*<h1 class="letter right text-center">Neutral Letter 1 - This is some random text to test</h1>
+<h1 class="letter wrong text-center">This is some random text to test</h1>
+<h1 class="letter text-center">This is some random text to test</h1>*@
+
+@*<h1 data-bind="text: playerText">This is a test</h1>*@
+
+@* Words and phrases show up here. *@
+<div class="row bg-secondary justify-content-center align-items-center fallZone">
+    @* Stopwatch *@
+    <div class="playerTimeDiv bg-dark text-center">
+        <h4 id="playerTime">0&nbsp;:&nbsp;0&nbsp;:&nbsp;00</h4>
+    </div>
+
+    @* New Phrase Button *@
+    <div class="playAgainDiv text-center">
+        <button id="go" class="btn btn-warning m-1 btn-block" data-bind="click: resetGame">Next Phrase</button>
+    </div>
+
+    @* The phrase will go here *@
+    <h1 id="phraseWrapper" class="text-center"></h1>
+</div>
+
+@* Has player stats and input field *@
+<div class="row bg-darkblue align-items-center">
+    @* Stats *@
+    <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <h1 class="text-center text-danger">Your Stats</h1>
+        <h3>Correct: <span data-bind="text: correctPhrases"></span></h3>
+        <h3>Wrong:&nbsp; <span data-bind="text: wrongPhrases"></span></h3>
+        <h5>Chars/Min:&nbsp; <span id="charsPerMin" data-bind="text: charsPerMin"></span></h5>
+    </div>
+
+    @* Input *@
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
+        <h2 class="text-center" data-bind="text: notificationText"></h2>
+        <div class="input-group mt-2 mb-4">
+            @*<div class="input-group-prepend preInput"></div>*@
+            <input type="text" class="form-control" data-bind="textInput: playerText, event: { keyup: checkLetter }, enable: phraseIncomplete">
+            @*<div class="input-group-append postInput"></div>*@
+        </div>
+    </div>
+
+    @* Next Phrase *@
+    <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+        <h4 class="text-success">Your Next Phrase: </h4>
+        <h4><span data-bind="text: nextPhrase"></span></h4>
+    </div>
+</div>
